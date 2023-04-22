@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"gf/client"
+	"gf/mempool"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -17,8 +18,10 @@ func main() {
 	// Access the value of an environment variable
 	apiKey := os.Getenv("API_KEY")
 	c, err := client.DialClientWS(apiKey)
+	defer c.Close()
 	if err != nil {
 		panic(err)
 	}
+	mempool.BlockNumber(apiKey)
 	fmt.Println(c)
 }
