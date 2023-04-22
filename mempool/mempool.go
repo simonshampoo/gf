@@ -1,12 +1,12 @@
 package mempool
 
 import (
-	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethclient/gethclient"
 )
 
-func RetrieveHeaders(client *ethclient.Client) {
-	//headers := make(chan *types.Header)
+func RetrievePendingTx(client *gethclient.Client) {
 
-	//	sub, err := client.SubscribeNewHead()
-
+	ch := make(types.Transaction)
+	client.SubscribeFullPendingTransactions(ctx, ch)
 }
