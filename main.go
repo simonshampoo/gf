@@ -33,13 +33,15 @@ func main() {
 
 		first i gotta establish some ws connection to a node
 
-		then i wanna fire a shitton of rpc at it
+		one of these rpc will be subscribing to new transactions in the mempool DONE
 
-		one of these rpc will be subscribing to new transactions in the mempool
+		now, we need to get the calldata for transactions that aren't simple transfers
 
-		then for every tx to a contract, i'll fork chain, send tx, then see if my balance increases
+		simply plug the calldata into my own private environment to see if it increases my balance
 
-		if my balance increases, then
+		if balance increases, then we send it to the chain with a higher gas fee
+
+		no need to partake in PGAs... idk gas escalation techniques just yet
 
 	*/
 }
