@@ -25,7 +25,9 @@ func RetrievePendingTx(client *gethclient.Client) {
 		select {
 		case tx := <-txs:
 			// check if transaction is profitable
-			fmt.Println(common.Bytes2Hex(tx.Data()))
+			if tx.Data() != nil {
+				fmt.Println("==========================================================\ncalldata: ", common.Bytes2Hex(tx.Data()), "\ngas: ", tx.Gas(), "\ngas price: ", tx.GasPrice())
+			}
 		case <-ctx.Done():
 			return
 		}
